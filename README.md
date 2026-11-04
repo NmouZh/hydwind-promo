@@ -15,10 +15,23 @@ hydwind-promo/
 │   ├── 02-social.md       # 空间 / 朋友圈 / 群发
 │   ├── 03-long.md         # 长版：给还在犹豫的人
 │   └── 04-video-script.md # 宣传片 15s / 30s 脚本
+├── film/                  # 宣传片源：官网 token + 真实截图，逐帧渲染
+│   ├── index.html         # 五场分镜，样式直接引官网的 CSS
+│   ├── film.js            # 时间轴（纯函数，给定 t 出一帧）
+│   ├── render.mjs         # 逐帧截图
+│   └── README.md          # 重出片、改片子、做竖版
+├── assets/shots/          # 当前官网截图（2026-11-04），片子的画面全靠它
+├── out/                   # 成片：hydwind_promo_15s_v2.mp4 / cover_v2.png
 ├── docs/SKILLS.md         # 用了 mattpocock/skills 的哪几套、怎么用的
 ├── JOURNAL.md             # 日记：每次干了什么
 └── HANDOFF.md             # 交接：现在到哪一步
 ```
+
+## 成片
+
+`out/hydwind_promo_15s_v2.mp4`：15 秒，1920×1080，30fps。
+画面用官网自己的 token（颜色、MiSans/Rubik、圆角、缓动）搭，官网页面用真实截图。
+官网改版后要重抓截图再出一遍，步骤在 `film/README.md`。
 
 ## 规矩
 

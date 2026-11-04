@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>氢风 Hydwind · 宣传片源</title>
+    <!-- 直接用官网的样式表，颜色、字体、圆角、动效全部来自同一套 token -->
+    <link rel="stylesheet" href="/styles/md3-tokens.css" />
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <style>
+      /* 中文兜底：MiSans 的子集缺字时回落到 Noto Sans SC，避免出现豆腐块 */
+      @font-face {
+        font-family: "HwCjkFallback";
+        src: url("/fonts-extra/NotoSansSC-VF.otf") format("opentype");
+        font-weight: 300 900;
+        font-display: block;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background: var(--md-sys-color-surface);
+        font-family: "Rubik", "MiSans", "HwCjkFallback", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .film {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        padding: 88px 96px;
+        display: grid;
+        align-content: center;
+        will-change: opacity, transform;
+      }
+
+      /* 发丝线：站里所有分隔都靠这一根，不用阴影 */
+      .hair {
+        height: 1px;
+        background: var(--md-sys-color-outline-variant);
+      }
+
+      /* ---------- S1 片头 ---------- */
+      .s1 .inner {
+        display: grid;
+        gap: var(--hw-space-5);
+        max-width: 900px;
+      }
+
+      .s1 .hero {
+        margin: 0;
+        font-size: var(--hw-type-hero);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+        color: var(--md-sys-color-on-surface);
+        display: flex;
+        align-items: baseline;
+        gap: var(--hw-space-5);
+      }
+
+      .s1 .hero-en {
+        font-size: 0.34em;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--md-sys-color-primary);
+      }
+
+      .s1 .rule {
+        height: 1px;
+        width: 0;
+        background: var(--md-sys-color-outline-variant);
+      }
+
+      .s1 .lede {
+        margin: 0;
+        font-size: var(--md-sys-typescale-headline-medium-size);
+        line-height: var(--hw-leading-snug);
+        color: var(--md-sys-color-on-surface-variant);
+        max-width: 34ch;
+      }
+
+      .s1 .addr {
+        margin: 0;
+        font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: var(--md-sys-typescale-body-medium-size);
+        letter-spacing: 0.02em;
+        color: var(--md-sys-color-primary);
+      }
+
+      /* ---------- S2 / S4 官网页面 ---------- */
+      .split {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: var(--hw-space-7);
+        align-items: center;
+      }
+
+      .caption h2 {
+        margin: var(--hw-space-3) 0 var(--hw-space-2);
+        font-size: var(--md-sys-typescale-headline-large-size);
+        line-height: var(--hw-leading-tight);
+        letter-spacing: -0.03em;
+        color: var(--md-sys-color-on-surface);
+      }
+
+      .caption p {
+        margin: 0;
+        font-size: var(--md-sys-typescale-body-medium-size);
+        line-height: var(--hw-leading-body);
+        color: var(--md-sys-color-on-surface-variant);
+      }
+
+      .frame {
+        position: relative;
+        border-radius: var(--md-sys-shape-corner-extra-large);
+        border: 1px solid var(--md-sys-color-outline-variant);
+        background: var(--md-sys-color-surface-container-lowest);
+        box-shadow: var(--hw-elevation-overlay);
+        overflow: hidden;
+        height: 414px;
+        will-change: transform, opacity;
+      }
+
+      .frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+        will-change: transform;
+      }
+
+      /* ---------- S3 事实清单 ---------- */
+      .s3 .head {
+        display: grid;
+        gap: var(--hw-space-3);
+        margin-bottom: var(--hw-space-6);
+      }
+
+      .s3 .head h2 {
+        margin: 0;
+        font-size: var(--md-sys-typescale-headline-large-size);
+        line-height: var(--hw-leading-tight);
+        letter-spacing: -0.03em;
+      }
+
+      .rows {
+        border-top: 1px solid var(--md-sys-color-outline-variant);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 64px 240px 1fr;
+        gap: var(--hw-space-5);
+        align-items: baseline;
+        padding: var(--hw-space-4) 0;
+        border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        will-change: opacity, transform;
+      }
+
+      .row .idx {
+        font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: var(--md-sys-typescale-label-medium-size);
+        color: var(--md-sys-color-primary);
+        letter-spacing: 0.08em;
+      }
+
+      .row .t {
+        font-size: var(--md-sys-typescale-title-large-size);
+        font-weight: 600;
+        color: var(--md-sys-color-on-surface);
+      }
+
+      .row .d {
+        font-size: var(--md-sys-typescale-body-medium-size);
+        color: var(--md-sys-color-on-surface-variant);
+        line-height: var(--hw-leading-body);
+      }
+
+      /* ---------- S5 尾卡 ---------- */
+      .s5 {
+        padding: 0;
+      }
+
+      .s5 .plate {
+        height: 100%;
+        padding: 96px;
+        display: grid;
+        align-content: center;
+        gap: var(--hw-space-5);
+        background: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+      }
+
+      .s5 .eyebrow {
+        color: var(--md-sys-color-on-primary-container);
+      }
+
+      .s5 .addr {
+        margin: 0;
+        font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 44px;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+      }
+
+      .s5 .sub {
+        margin: 0;
+        font-size: var(--md-sys-typescale-title-large-size);
+        color: var(--md-sys-color-on-primary-container);
+      }
+
+      .s5 .line {
+        height: 1px;
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-on-primary-container) 28%,
+          transparent
+        );
+      }
+
+      .s5 .close {
+        margin: 0;
+        font-size: var(--md-sys-typescale-headline-medium-size);
+        line-height: var(--hw-leading-snug);
+        letter-spacing: -0.02em;
+      }
+
+      .s5 .fine {
+        margin: 0;
+        font-size: var(--md-sys-typescale-label-medium-size);
+        color: color-mix(
+          in srgb,
+          var(--md-sys-color-on-primary-container) 78%,
+          transparent
+        );
+      }
+
+      .s5 .brand {
+        display: flex;
+        align-items: baseline;
+        gap: var(--hw-space-3);
+        font-size: var(--md-sys-typescale-title-large-size);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="film" data-theme="light">
+      <!-- S1 -->
+      <section class="scene s1" id="s1">
+        <div class="inner">
+          <p class="hw-eyebrow" data-a="eye">Minecraft Java · 生存服</p>
+          <h1 class="hero" data-a="hero">氢风<span class="hero-en">Hydwind</span></h1>
+          <div class="rule" data-a="rule"></div>
+          <p class="lede" data-a="lede">原版与插件生存的 Minecraft Java 服务器，暂时免费，正在筹备测试。</p>
+          <p class="addr" data-a="addr">zzbgp2.coreyun.net:35282</p>
+        </div>
+      </section>
+
+      <!-- S2：官网首页 -->
+      <section class="scene s2" id="s2">
+        <div class="split">
+          <div class="caption">
+            <p class="hw-eyebrow" data-a="eye">官网</p>
+            <h2 data-a="title">这里还没有人</h2>
+            <p data-a="text">山没被挖过，路没人铺过。先把当前情况写清楚，再请你进来。</p>
+          </div>
+          <div class="frame" data-a="frame">
+            <img data-a="shot" src="/shots/home-desktop.png" alt="氢风官网首页" />
+          </div>
+        </div>
+      </section>
+
+      <!-- S3：事实清单 -->
+      <section class="scene s3" id="s3">
+        <div class="head">
+          <p class="hw-eyebrow" data-a="eye">现在的情况</p>
+          <h2 data-a="title">四件事，先说清楚</h2>
+        </div>
+        <div class="rows">
+          <div class="row">
+            <span class="idx">01</span>
+            <span class="t">原版就能进</span>
+            <span class="d">原版或插件生存客户端即可，不需要安装模组。</span>
+          </div>
+          <div class="row">
+            <span class="idx">02</span>
+            <span class="t">免正版验证</span>
+            <span class="d">离线服务器，不需要正版验证。</span>
+          </div>
+          <div class="row">
+            <span class="idx">03</span>
+            <span class="t">暂时免费</span>
+            <span class="d">没有白名单，服务器在线即可进入。</span>
+          </div>
+          <div class="row">
+            <span class="idx">04</span>
+            <span class="t">测试筹备中</span>
+            <span class="d">世界可能重置，重要建筑请自行备份。</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4：第一次进服 -->
+      <section class="scene s4" id="s4">
+        <div class="split">
+          <div class="caption">
+            <p class="hw-eyebrow" data-a="eye">第一次来</p>
+            <h2 data-a="title">四步就能进来</h2>
+            <p data-a="text">确认客户端、添加服务器、加群、进服。每一步站内都写清楚了。</p>
+          </div>
+          <div class="frame" data-a="frame">
+            <img data-a="shot" src="/shots/join-desktop.png" alt="第一次进服" />
+          </div>
+        </div>
+      </section>
+
+      <!-- S5：尾卡 -->
+      <section class="scene s5" id="s5">
+        <div class="plate">
+          <p class="hw-eyebrow eyebrow" data-a="eye">服务器地址</p>
+          <p class="addr" data-a="addr">zzbgp2.coreyun.net:35282</p>
+          <p class="sub" data-a="sub">官方 QQ 群 1129694648 · 版本 1.8.9 – 26.3</p>
+          <div class="line" data-a="line"></div>
+          <p class="close" data-a="close">现在进来的人，以后就是这里的老人。</p>
+          <div class="brand" data-a="brand">氢风 Hydwind</div>
+          <p class="fine" data-a="fine">版本与安排可能调整，以官网和群内通知为准。</p>
+        </div>
+      </section>
+    </div>
+    <script src="/film.js"></script>
+  </body>
+</html>
